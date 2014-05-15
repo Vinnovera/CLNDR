@@ -370,7 +370,10 @@
     // validate moment date
     if (!day.isValid() && day.hasOwnProperty('_d') && day._d != undefined) {
         day = moment(day._d);
+        // Format date._i for surrounding months the same as current
+        day._i = [day.year(), day.month(), day.format('DD')*1];
     }
+
 
     // we're moving away from using IDs in favor of classes, since when
     // using multiple calendars on a page we are technically violating the
